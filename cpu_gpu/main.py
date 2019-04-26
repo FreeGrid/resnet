@@ -11,7 +11,7 @@ import numpy as np
 import datetime
 from tensorflow.python.profiler import model_analyzer
 from tensorflow.python.profiler import option_builder
-from gradient_descent import *
+#from gradient_descent import *
 
 
 # 建立一个 cifar10_data 的类， 输入文件名队列，输出 labels 和images
@@ -222,8 +222,8 @@ def train():
     # 求 loss
     loss = losses(inference(images), labels)
     # 设置优化算法，这里用 SGD 随机梯度下降法，恒定学习率
-    #optimizer =tf.train.GradientDescentOptimizer(LEARNING_RATE)
-    optimizer =GradientDescentOptimizer(LEARNING_RATE)
+    optimizer =tf.train.GradientDescentOptimizer(LEARNING_RATE)
+    #optimizer =GradientDescentOptimizer(LEARNING_RATE)
     # global_step 用来设置初始化
     train_op = optimizer.minimize(loss, global_step = global_step)
     # 保存操作
